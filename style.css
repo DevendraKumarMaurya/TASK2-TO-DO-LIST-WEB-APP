@@ -232,6 +232,37 @@ body {
     padding: 20px;
 }
 
+/* Custom Scrollbar Styles for Tasks Container */
+.tasks-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tasks-container::-webkit-scrollbar-track {
+    background: rgba(170, 176, 144, 0.1);
+    border-radius: 10px;
+}
+
+.tasks-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #93ad58, #aab090);
+    border-radius: 10px;
+    border: 2px solid rgba(249, 250, 243, 0.3);
+}
+
+.tasks-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #7d9846, #93ad58);
+    transform: scale(1.1);
+}
+
+.tasks-container::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(135deg, #6b8239, #7d9846);
+}
+
+/* Firefox Scrollbar Styles */
+.tasks-container {
+    scrollbar-width: thin;
+    scrollbar-color: #93ad58 rgba(170, 176, 144, 0.1);
+}
+
 .task-item {
     display: flex;
     align-items: center;

@@ -256,19 +256,20 @@ class TodoApp {
         const taskText = document.createElement('div');
         taskText.className = `task-text ${task.completed ? 'completed' : ''}`;
         taskText.textContent = task.text;
-        
-        // Create actions container
+          // Create actions container
         const actionsDiv = document.createElement('div');
         actionsDiv.className = 'task-actions';
         
-        // Create edit button
-        const editBtn = document.createElement('button');
-        editBtn.className = 'task-btn edit-btn';
-        editBtn.disabled = task.completed;
-        editBtn.innerHTML = `<i class="fas fa-edit"></i> Edit`;
-        editBtn.addEventListener('click', () => this.editTask(task.id));
+        // Create edit button only for pending tasks
+        if (!task.completed) {
+            const editBtn = document.createElement('button');
+            editBtn.className = 'task-btn edit-btn';
+            editBtn.innerHTML = `<i class="fas fa-edit"></i> Edit`;
+            editBtn.addEventListener('click', () => this.editTask(task.id));
+            actionsDiv.appendChild(editBtn);
+        }
         
-        // Create delete button
+        // Create delete button (always visible)
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'task-btn delete-btn';
         deleteBtn.innerHTML = `<i class="fas fa-trash"></i> Delete`;
@@ -277,9 +278,6 @@ class TodoApp {
             e.stopPropagation();
             this.showDeleteConfirm(task.id);
         });
-        
-        // Append elements
-        actionsDiv.appendChild(editBtn);
         actionsDiv.appendChild(deleteBtn);
         
         taskDiv.appendChild(checkbox);
