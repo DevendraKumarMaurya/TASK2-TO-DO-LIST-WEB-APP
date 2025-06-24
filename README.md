@@ -57,10 +57,6 @@ python -m http.server 3000
 
 Works on all modern browsers: Chrome, Firefox, Safari, Edge (60+)
 
-## 📄 License
-
-Open source under the [MIT License](LICENSE).
-
 ---
 
 **Built with ❤️ using Vanilla JavaScript**
